@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MadLibs Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #output, #goAgain {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>MadLibs Fun!</h1>
+    <p>Enter the words to complete your story:</p>
+    
+    <label>Noun: <input type="text" id="noun"></label><br><br>
+    <label>Verb: <input type="text" id="verb"></label><br><br>
+    <label>Adjective: <input type="text" id="adjective"></label><br><br>
+    <label>Place: <input type="text" id="place"></label><br><br>
+    <label>Animal: <input type="text" id="animal"></label><br><br>
+    
+    <button onclick="generateMadLib()">Create Story</button>
+    
+    <p id="output"></p>
+    <button id="goAgain" onclick="resetMadLib()">Go Again</button>
+    
+    <script>
+        function generateMadLib() {
+            let noun = document.getElementById("noun").value.toUpperCase();
+            let verb = document.getElementById("verb").value.toUpperCase();
+            let adjective = document.getElementById("adjective").value.toUpperCase();
+            let place = document.getElementById("place").value.toUpperCase();
+            let animal = document.getElementById("animal").value.toUpperCase();
+            
+            let story = `One day, a ${adjective} ${animal} went to ${place} to ${verb} a ${noun}. It was a fantastic adventure!`;
+            
+            document.getElementById("output").innerHTML = story;
+            document.getElementById("output").style.display = "block";
+            document.getElementById("goAgain").style.display = "block";
+        }
+        
+        function resetMadLib() {
+            document.getElementById("noun").value = "";
+            document.getElementById("verb").value = "";
+            document.getElementById("adjective").value = "";
+            document.getElementById("place").value = "";
+            document.getElementById("animal").value = "";
+            
+            document.getElementById("output").style.display = "none";
+            document.getElementById("goAgain").style.display = "none";
+        }
+    </script>
+</body>
+</html>
